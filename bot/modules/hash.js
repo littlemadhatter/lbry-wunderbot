@@ -1,11 +1,47 @@
+"use strict";
 let needle = require("needle");
 let config = require("config");
 let hasHashBotChannels = require("../helpers.js").hasHashBotChannels;
 let inPrivate = require("../helpers.js").inPrivate;
 let ChannelID = config.get("hashbot").mainchannel;
+
 exports.commands = [
   "hash" // command that is in this file, every command needs it own export as shown below
 ];
+const symbols = {
+  usd: "$",
+  aud: "AU$",
+  brl: "R$",
+  cad: "Can$",
+  chf: "Fr",
+  clp: "CLP$",
+  cny: "¥",
+  czk: "Kč",
+  dkk: "kr",
+  eur: "€",
+  gbp: "£",
+  hkd: "HKD$",
+  huf: "Ft",
+  idr: "Rp",
+  ils: "₪",
+  inr: "₹",
+  jpy: "¥",
+  krw: "‎₩",
+  mxn: "MXN$",
+  myr: "RM",
+  nok: "kr",
+  nzd: "NZD$",
+  php: "₱",
+  pkr: "₨",
+  pln: "zł",
+  rub: "₽",
+  sek: "kr",
+  sgd: "S$",
+  thb: "฿",
+  try: "₺",
+  twd: "NT$",
+  zar: "R"
+};
 
 /**
  * Retrieves the information from the APIs
@@ -84,7 +120,7 @@ exports.timedhash = function(bot) {
 exports.hash = {
   usage: "",
   description:
-    "Displays current Hashrate of Network\n**!hash power <Mh/s>**\n  Displays potential Earnings For Given Hashrate",
+    "Displays current Hashrate of Network\n**!hash power <Mh/s> <fait>**\n  Displays potential Earnings For Given Hashrate\n **Supported Currencies:** *usd*, *eur*, *gbp*, *aud*, *brl*, *cad*, *chf*, *clp*, *cny*, *czk*, *dkk*, *hkd*, *huf*, *idr*, *ils*, *inr*, *jpy*, *krw*, *mxn*, *myr*, *nok*, *nzd*, *php*, *pkr*, *pln*, *rub*, *sek*, *sgd*, *thb*, *try*, *twd*, *zar* (case-insensitive)",
   process: function(bot, msg, suffix) {
     let words = suffix
       .trim()
@@ -115,54 +151,100 @@ exports.hash = {
     }
 
     function sendProfitInfo(bot, msg, suffix) {
-      needle.get("https://whattomine.com/coins/164.json", function(
-        error,
-        response
+      let words = suffix
+        .trim()
+        .split(" ")
+        .filter(function(n) {
+          return n !== "";
+        });
+      let myhashrate = words[1];
+      if (
+        myhashrate === "" ||
+        myhashrate === null ||
+        myhashrate === undefined ||
+        myhashrate === " "
       ) {
+        myhashrate = "100";
+      }
+      let otherfiat = words[2];
+      if (
+        otherfiat === "" ||
+        otherfiat === null ||
+        otherfiat === undefined ||
+        otherfiat === " "
+      ) {
+        otherfiat = "usd";
+      }
+      otherfiat = otherfiat.toLowerCase();
+      let cmcurl = `https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=${
+        otherfiat
+      }`;
+      needle.get(cmcurl, function(error, response) {
         if (error || response.statusCode !== 200) {
-          msg.channel.send("whattomine API is not available");
+          msg.channel.send("coinmarketcap API is not available");
         } else {
-          let words = suffix
-            .trim()
-            .split(" ")
-            .filter(function(n) {
-              return n !== "";
-            });
-          let myhashrate = words[1];
-          if (
-            myhashrate === "" ||
-            myhashrate === null ||
-            myhashrate === undefined ||
-            myhashrate === " "
+          let data = response.body[0];
+          let otherPrice = data.body[0]["price_" + otherfiat];
+          let sign = symbols[otherfiat];
+          let myRate = Number(otherPrice);
+
+          needle.get("https://whattomine.com/coins/164.json", function(
+            error,
+            response
           ) {
-            myhashrate = "100";
-          }
-          let Diff = response.body.difficulty24;
-          let Reward = response.body.block_reward;
-          let myHash = Number(myhashrate);
-          let LBCs = myHash / 2000 * (1 / ((Diff * 2) ^ 32) * Reward);
-          let LBC = LBCs * 3600;
-          let LBC24 = LBCs * 86400;
-          let LBC1w = LBCs * 604800;
-          let LBC1m = LBCs * 2628000;
-          let message = `With **${
-            myHash
-          } Mh/s** and Average 24 hour Difficulty: **${Diff.toFixed(0)}**
-You can potentially earn the following amounts of **LBC**: 
-1 Hour = **${LBC.toFixed(4)}** 
+            if (error || response.statusCode !== 200) {
+              msg.channel.send("whattomine API is not available");
+            } else {
+              let Diff = response.body.difficulty24;
+              let Reward = response.body.block_reward;
+              let myHash = Number(myhashrate);
+              let LBCs = myHash / 2000 * (1 / ((Diff * 2) ^ 32) * Reward);
+              let LBC = LBCs * 3600;
+              let LBC24 = LBCs * 86400;
+              let LBC1w = LBCs * 604800;
+              let LBC1m = LBCs * 2628000;
+              let Other = myRate * LBC;
+              let Other24 = myRate * LBC24;
+              let Other1w = myRate * LBC1w;
+              let Other1m = myRate * LBC1m;
+              let message = `With **${
+                myHash
+              } Mh/s** and Average 24 hour Difficulty: **${Diff.toFixed(0)}**
+You can potentially earn the following: 
+`;
+              let lbcrates = `1 Hour = **${LBC.toFixed(4)}** 
 1 Day = **${LBC24.toFixed(2)}** 
 1 Week = **${LBC1w.toFixed(4)}** 
 1 Month = **${LBC1m.toFixed(4)}** 
 `;
-          const embed = {
-            description: message,
-            color: 7976557,
-            author: {
-              name: "Hashing Power Calculator!",
-              icon_url: "https://i.imgur.com/nKHVQgq.png"
+              let otherrates = `1 Hour = **${sign} ${Other.toFixed(2)}** 
+1 Day = **${sign} ${Other24.toFixed(2)}** 
+1 Week = **${sign} ${Other1w.toFixed(2)}** 
+1 Month = **${sign} ${Other1m.toFixed(2)}** 
+`;
+              const embed = {
+                description: message,
+                color: 7976557,
+                author: {
+                  name: "Hashing Power Calculator!",
+                  icon_url: "https://i.imgur.com/nKHVQgq.png"
+                },
+                fields: [
+                  {
+                    name: "LBC Rates",
+                    value: lbcrates,
+                    inline: true
+                  },
+                  {
+                    name: `${otherfiat.toUpperCase()} (${sign}) Rates`,
+                    value: otherrates,
+                    inline: true
+                  }
+                ]
+              };
+              msg.channel.send({ embed });
             }
-          };
-          msg.channel.send({ embed });
+          });
         }
       });
     }
