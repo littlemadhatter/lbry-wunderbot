@@ -1,6 +1,5 @@
 let needle = require('needle');
-let hasPriceBotChannels = require('../helpers.js').hasPriceBotChannels;
-let inPrivate = require('../helpers.js').inPrivate;
+let { hasPriceBotChannels, inPrivate } = require('../helpers/cmd-helper.js');
 let config = require('config');
 let ChannelID = config.get('pricebot').mainchannel;
 

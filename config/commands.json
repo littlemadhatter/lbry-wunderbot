@@ -1,5 +1,5 @@
 {
-  "!helpcommands": {
+  "helpcommands": {
     "usage": "",
     "description": "List of Helpful LBRY Commands",
     "operation": "none",
@@ -15,7 +15,7 @@
       }
     }
   },
-  "!what": {
+  "what": {
     "usage": "",
     "description": "What Is LBRY?",
     "operation": "send",
@@ -31,7 +31,7 @@
       }
     }
   },
-  "!begging": {
+  "begging": {
     "usage": "",
     "description": "Don't Request Free Coins Message",
     "operation": "send",
@@ -47,7 +47,7 @@
       }
     }
   },
-  "!beta": {
+  "beta": {
     "usage": "",
     "description": "Beta Message",
     "operation": "send",
@@ -63,7 +63,7 @@
       }
     }
   },
-  "!github": {
+  "github": {
     "usage": "",
     "description": "LBRY GitHub",
     "operation": "send",
@@ -79,7 +79,7 @@
       }
     }
   },
-  "!appdownload": {
+  "appdownload": {
     "usage": "",
     "description": "LBRY App Installers",
     "operation": "send",
@@ -95,7 +95,7 @@
       }
     }
   },
-  "!daemondownload": {
+  "daemondownload": {
     "usage": "",
     "description": "LBRY Daemon Installers",
     "operation": "send",
@@ -111,7 +111,7 @@
       }
     }
   },
-  "!directories": {
+  "directories": {
     "usage": "",
     "description": "LBRY App Directories",
     "operation": "send",
@@ -127,7 +127,7 @@
       }
     }
   },
-  "!faq": {
+  "faq": {
     "usage": "",
     "description": "LBRY FAQ",
     "operation": "send",
@@ -143,7 +143,7 @@
       }
     }
   },
-  "!contribute": {
+  "contribute": {
     "usage": "",
     "description": "Contributing to LBRY",
     "operation": "send",
@@ -159,7 +159,7 @@
       }
     }
   },
-  "!news": {
+  "news": {
     "usage": "",
     "description": "LBRY Inc. Newsfeed",
     "operation": "send",
@@ -175,7 +175,7 @@
       }
     }
   },
-  "!name": {
+  "name": {
     "usage": "",
     "description": "Change Name Message",
     "operation": "send",
@@ -191,7 +191,7 @@
       }
     }
   },
-  "!mining": {
+  "mining": {
     "usage": "",
     "description": "Mining LBRY Credits (LBC)",
     "operation": "send",
@@ -207,7 +207,7 @@
       }
     }
   },
-  "!pricestance": {
+  "pricestance": {
     "usage": "",
     "description": "Our Stance on LBC Price",
     "operation": "send",
@@ -223,7 +223,7 @@
       }
     }
   },
-  "!youtuber": {
+  "youtuber": {
     "usage": "",
     "description": "Are You a YouTuber Curious About LBRY?",
     "operation": "send",
@@ -239,7 +239,7 @@
       }
     }
   },
-  "!publish": {
+  "publish": {
     "usage": "",
     "description": "How to Publish on LBRY?",
     "operation": "send",
@@ -255,7 +255,7 @@
       }
     }
   },
-  "!random": {
+  "random": {
     "usage": "",
     "description": "Off-Topic Messages",
     "operation": "send",
@@ -271,7 +271,7 @@
       }
     }
   },
-  "!naming": {
+  "naming": {
     "usage": "",
     "description": "How Does LBRY Naming Work?",
     "operation": "send",
@@ -287,7 +287,7 @@
       }
     }
   },
-  "!bounty": {
+  "bounty": {
     "usage": "",
     "description": "LBRY Bounties",
     "operation": "send",
@@ -303,7 +303,7 @@
       }
     }
   },
-  "!roadmap": {
+  "roadmap": {
     "usage": "",
     "description": "The LBRY RoadMap",
     "operation": "send",
@@ -319,7 +319,7 @@
       }
     }
   },
-  "!referrals": {
+  "referrals": {
     "usage": "",
     "description": "What Are Referrals?",
     "operation": "send",
@@ -335,7 +335,7 @@
       }
     }
   },
-  "!rewards": {
+  "rewards": {
     "usage": "",
     "description": "What Are Rewards?",
     "operation": "send",
@@ -351,7 +351,7 @@
       }
     }
   },
-  "!rewardsvsreferrals": {
+  "rewardsvsreferrals": {
     "usage": "",
     "description": "Difference Between Rewards & Referrals?",
     "operation": "send",
@@ -367,7 +367,7 @@
       }
     }
   },
-  "!cc": {
+  "cc": {
     "usage": "",
     "description": "Credit Card Verification?",
     "operation": "send",
@@ -383,7 +383,7 @@
       }
     }
   },
-  "!verify": {
+  "verify": {
     "usage": "",
     "description": "How to Verify?",
     "operation": "send",
@@ -399,7 +399,7 @@
       }
     }
   },
-  "!verification": {
+  "verification": {
     "usage": "",
     "description": "Verification Help Message",
     "operation": "send",
@@ -415,7 +415,7 @@
       }
     }
   },
-  "!logfile": {
+  "logfile": {
     "usage": "",
     "description": "How to Find LBRY App Log File?",
     "operation": "send",
@@ -431,7 +431,7 @@
       }
     }
   },
-  "!backup": {
+  "backup": {
     "usage": "",
     "description": "How to Backup the Wallet",
     "operation": "send",
@@ -447,7 +447,7 @@
       }
     }
   },
-  "!startup": {
+  "startup": {
     "usage": "",
     "description": "Startup Troubleshooting?",
     "operation": "send",
@@ -463,7 +463,7 @@
       }
     }
   },
-  "!streamingissues": {
+  "streamingissues": {
     "usage": "",
     "description": "Unable to Stream?",
     "operation": "send",
@@ -479,7 +479,7 @@
       }
     }
   },
-  "!ports": {
+  "ports": {
     "usage": "",
     "description": "LBRY Ports",
     "operation": "send",
@@ -495,7 +495,7 @@
       }
     }
   },
-  "!migrate": {
+  "migrate": {
     "usage": "",
     "description": "How to Migrate Your Wallet/Data",
     "operation": "send",
@@ -511,7 +511,7 @@
       }
     }
   },
-  "!tipping": {
+  "tipping": {
     "usage": "",
     "description": "Details About LBRY App Tipping",
     "operation": "send",
@@ -527,7 +527,7 @@
       }
     }
   },
-  "!email": {
+  "email": {
     "usage": "",
     "description": "How to Change Email in the LBRY App",
     "operation": "send",
@@ -543,7 +543,7 @@
       }
     }
   },
-  "!cli": {
+  "cli": {
     "usage": "",
     "description": "How to Interact with LBRY CLI?",
     "operation": "send",
@@ -559,7 +559,7 @@
       }
     }
   },
-  "!ipfstorrent": {
+  "ipfstorrent": {
     "usage": "",
     "description": "How Is LBRY Different from IPFS/BitTorrent?",
     "operation": "send",
@@ -575,7 +575,7 @@
       }
     }
   },
-  "!shapeshift": {
+  "shapeshift": {
     "usage": "",
     "description": "How Can I Convert My Crypto into LBC?",
     "operation": "send",
@@ -591,7 +591,7 @@
       }
     }
   },
-  "!youtube": {
+  "youtube": {
     "usage": "",
     "description": "What Is YouTube Sync?",
     "operation": "send",
@@ -607,7 +607,7 @@
       }
     }
   },
-  "!transactions": {
+  "transactions": {
     "usage": "",
     "description": "What Types of LBRY Transactions Are There?",
     "operation": "send",
@@ -623,7 +623,7 @@
       }
     }
   },
-  "!team": {
+  "team": {
     "usage": "",
     "description": "Meet the Team!",
     "operation": "send",
@@ -639,7 +639,7 @@
       }
     }
   },
-  "!phone": {
+  "phone": {
     "usage": "",
     "description": "Phone Verification!",
     "operation": "send",
@@ -655,7 +655,7 @@
       }
     }
   },
-  "!basic": {
+  "basic": {
     "usage": "",
     "description": "LBRY App Basics!",
     "operation": "send",
@@ -671,7 +671,7 @@
       }
     }
   },
-  "!shop": {
+  "shop": {
     "usage": "",
     "description": "The LBRY Inc. Shop!",
     "operation": "send",
@@ -687,7 +687,7 @@
       }
     }
   },
-  "!content": {
+  "content": {
     "usage": "",
     "description": "What Content Can I legally Upload to LBRY?",
     "operation": "send",
@@ -703,7 +703,7 @@
       }
     }
   },
-  "!aup": {
+  "aup": {
     "usage": "",
     "description": "Acceptable Use Policy",
     "operation": "send",
@@ -719,7 +719,7 @@
       }
     }
   },
-  "!meet": {
+  "meet": {
     "usage": "",
     "description": "Wanna Meet Up?",
     "operation": "send",
@@ -735,7 +735,7 @@
       }
     }
   },
-  "!android": {
+  "android": {
     "usage": "",
     "description": "LBRY Android Beta",
     "operation": "send",
@@ -751,7 +751,7 @@
       }
     }
   },
-  "!fund": {
+  "fund": {
     "usage": "",
     "description": "LBRY Fund Project",
     "operation": "send",
@@ -767,7 +767,7 @@
       }
     }
   },
-  "!jiggytom": {
+  "jiggytom": {
     "usage": "",
     "description": "What is JiggyTom?",
     "operation": "send",
@@ -783,7 +783,7 @@
       }
     }
   },
-  "!julie": {
+  "julie": {
     "usage": "",
     "description": "What is Julie?",
     "operation": "send",
@@ -799,7 +799,7 @@
       }
     }
   },
-  "!tipbot": {
+  "tipbot": {
     "usage": "",
     "description": "Tipbot Help Message",
     "operation": "send",
@@ -815,7 +815,7 @@
       }
     }
   },
-  "!ios": {
+  "ios": {
     "usage": "",
     "description": "iOS waiting list",
     "operation": "send",
@@ -831,7 +831,7 @@
       }
     }
   },
-  "!3d": {
+  "3d": {
     "usage": "",
     "description": "3D Printing Program",
     "operation": "send",
@@ -847,7 +847,7 @@
       }
     }
   },
-  "!topbids": {
+  "topbids": {
     "usage": "",
     "description": "Community Top Bids",
     "operation": "send",
@@ -863,7 +863,7 @@
       }
     }
   },
-  "!piratebay": {
+  "piratebay": {
     "usage": "",
     "description": "Why LBRY has piratebay.com",
     "operation": "send",

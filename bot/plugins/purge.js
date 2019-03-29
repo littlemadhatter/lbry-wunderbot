@@ -1,5 +1,4 @@
-let hasPerms = require('../helpers.js').hasPerms;
-let inPrivate = require('../helpers.js').inPrivate;
+let { hasPerms, inPrivate } = require('../helpers/cmd-helper.js');
 exports.commands = [
   'purge' // command that is in this file, every command needs it own export as shown below
 ];

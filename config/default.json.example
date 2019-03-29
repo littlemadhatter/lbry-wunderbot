@@ -15,9 +15,6 @@
     "user": "USERHERE",
     "pass": "PASSWORDHERE"
   },
-  "mongodb": {
-    "url": "mongodb://localhost:27017/wunderbot"
-  },
   "Channels": {
     "verification": "363050496023592961",
     "mining": "363049669636390913",

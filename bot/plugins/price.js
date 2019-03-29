@@ -4,8 +4,7 @@ let moment = require('moment');
 let numeral = require('numeral');
 let request = require('request');
 let config = require('config');
-let hasPriceBotChannels = require('../helpers.js').hasPriceBotChannels;
-let inPrivate = require('../helpers.js').inPrivate;
+let { hasPriceBotChannels, inPrivate } = require('../helpers/cmd-helper.js');
 let ChannelID = config.get('pricebot').mainchannel;
 
 exports.commands = ['price'];

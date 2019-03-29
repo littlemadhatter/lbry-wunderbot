@@ -1,8 +1,7 @@
 let request = require('request');
 let wget = require('wget');
 let config = require('config');
-let hasSpeechBotChannels = require('../helpers.js').hasSpeechBotChannels;
-let inPrivate = require('../helpers.js').inPrivate;
+let { hasSpeechBotChannels, inPrivate } = require('../helpers/cmd-helper.js');
 let ChannelID = config.get('speechbot').mainchannel;
 //debug output "true/false" outputs same error as slack message in console if set to true
 //if set to false console will be left blank like normal

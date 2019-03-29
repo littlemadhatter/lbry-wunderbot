@@ -3,13 +3,13 @@
 let discordBot;
 let moment = require('moment');
 let config = require('config');
-let channels = config.get('claimbot').channels;
+let { channels } = config.get('claimbot');
 const Discord = require('discord.js');
 const request = require('request');
 let lastProcessedBlock = 0;
 
-module.exports = {
-  init: init
+exports.claimBot = function(discordBot_) {
+  init(discordBot_);
 };
 
 function init(discordBot_) {

@@ -1,4 +1,4 @@
-let inPrivate = require('../helpers.js').inPrivate;
+let { inPrivate } = require('../helpers/cmd-helper.js');
 let { RichEmbed } = require('discord.js');
 exports.custom = [
   'lbrylink' //change this to your function name

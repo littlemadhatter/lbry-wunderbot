@@ -3,11 +3,8 @@ let warned = [];
 let banned = [];
 let messagelog = [];
 let config = require('config');
-let botlog = config.get('moderation').logchannel;
-let hasPerms = require('../helpers.js').hasPerms;
-let inPrivate = require('../helpers.js').inPrivate;
-let hasExcludedSpamChannels = require('../helpers.js').hasExcludedSpamChannels;
-let hasExcludedSpamUsers = require('../helpers.js').hasExcludedSpamUsers;
+let { logchannel } = config.get('moderation');
+let { hasPerms, inPrivate, hasExcludedSpamChannels, hasExcludedSpamUsers } = require('../helpers.js');
 
 /**
  * Add simple spam protection to your discord server.
@@ -112,7 +109,7 @@ exports.antiSpam = function(bot) {
         .ban()
         .then(member => {
           msg.channel.send(msg.author + ' ' + banMessage);
-          bot.channels.get(botlog).send(msg.author + ' ' + banMessage);
+          bot.channels.get(logchannel).send(msg.author + ' ' + banMessage);
           return true;
         })
         .catch(() => {

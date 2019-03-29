@@ -1,7 +1,6 @@
 let request = require('request');
 let config = require('config');
-let hasPerms = require('../helpers.js').hasPerms;
-let inPrivate = require('../helpers.js').inPrivate;
+let { hasPerms, inPrivate } = require('../helpers.js/cmd-helper');
 let ChannelID = config.get('gitrelease').channel;
 
 exports.commands = [

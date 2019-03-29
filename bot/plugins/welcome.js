@@ -1,5 +1,4 @@
-let hasPerms = require('../helpers.js').hasPerms;
-let inPrivate = require('../helpers.js').inPrivate;
+let { hasPerms, inPrivate } = require('../helpers.js').inPrivate;
 
 exports.custom = ['onUserJoin'];
 exports.onUserJoin = function(bot) {

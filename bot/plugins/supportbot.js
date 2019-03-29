@@ -2,8 +2,8 @@
 let initialized = false;
 let discordBot = null;
 
-module.exports = {
-  init: init
+exports.supportBot = function(discordBot_) {
+  init(discordBot_);
 };
 
 function init(discordBot_) {

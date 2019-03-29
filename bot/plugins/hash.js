@@ -1,7 +1,6 @@
 let needle = require('needle');
 let config = require('config');
-let hasHashBotChannels = require('../helpers.js').hasHashBotChannels;
-let inPrivate = require('../helpers.js').inPrivate;
+let { hasHashBotChannels, inPrivate } = require('../helpers/cmd-helper.js');
 let ChannelID = config.get('hashbot').mainchannel;
 exports.commands = [
   'hash' // command that is in this file, every command needs it own export as shown below

@@ -1,7 +1,7 @@
 let config = require('config');
-let botconfig = config.get('bot');
+let { prefix } = config.get('bot');
 let rolelist = config.get('rolelist');
-let inPrivate = require('../helpers.js').inPrivate;
+let { inPrivate } = require('../helpers/cmd-helpers.js');
 
 exports.commands = [
   'addrole', // command that is in this file, every command needs it own export as shown below
@@ -42,16 +42,16 @@ exports.addrole = {
                 }
               }
             } else {
-              msg.channel.send('It seems that you already have that role! Try removing it first with the ' + botconfig.prefix + 'delrole command!');
+              msg.channel.send('It seems that you already have that role! Try removing it first with the ' + prefix + 'delrole command!');
             }
           } else {
             msg.channel.send('The role ' + '`' + suffix + '`' + ' does not exist!');
           }
         } else {
-          msg.channel.send("That role isn't one you can add yourself to! Please run the " + botconfig.prefix + 'roles command to find out which ones are allowed.');
+          msg.channel.send("That role isn't one you can add yourself to! Please run the " + prefix + 'roles command to find out which ones are allowed.');
         }
       } else {
-        msg.channel.send('Please specify a role. Type ' + botconfig.prefix + 'roles to see which you may add!');
+        msg.channel.send('Please specify a role. Type ' + prefix + 'roles to see which you may add!');
       }
     }
   }
@@ -76,16 +76,16 @@ exports.delrole = {
             if (msg.member.roles.find('name', suffix)) {
               msg.member.removeRole(oldrole).then(msg.channel.send(msg.member + ' has been removed from the ' + suffix + ' role!'));
             } else {
-              msg.channel.send("You don't seem to have that role! Try adding it first with the " + botconfig.prefix + 'addrole command!');
+              msg.channel.send("You don't seem to have that role! Try adding it first with the " + prefix + 'addrole command!');
             }
           } else {
             msg.channel.send('The role ' + '`' + suffix + '`' + ' does not exist!');
           }
         } else {
-          msg.channel.send("That role isn't one you can add yourself to! Please run the " + botconfig.prefix + 'roles command to find out which ones are allowed.');
+          msg.channel.send("That role isn't one you can add yourself to! Please run the " + prefix + 'roles command to find out which ones are allowed.');
         }
       } else {
-        msg.channel.send('Please specify a role. Type ' + botconfig.prefix + 'roles to see which you may add!');
+        msg.channel.send('Please specify a role. Type ' + prefix + 'roles to see which you may add!');
       }
     }
   }
